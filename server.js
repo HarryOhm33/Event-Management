@@ -8,6 +8,7 @@ require("./utils/cronJobs");
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const port = process.env.PORT;
 
@@ -16,6 +17,7 @@ const ExpressError = require("./utils/ExpressError");
 const authRoute = require("./routes/authRoute");
 const eventRoute = require("./routes/eventRoute");
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser()); // ✅ Middleware for handling cookies
